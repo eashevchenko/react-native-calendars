@@ -113,12 +113,43 @@ class ReactComp extends Component {
 
     return (
       <View style={styles.container} onLayout={this.onRowLayoutChange.bind(this, ind)}>
-        {this.renderDate(date, reservation)}
+        {this.renderTime(date, reservation)}
         <View style={{marginTop: 12, flex:1}}>
           {content}
         </View>
       </View>
     );
+  }
+
+  renderTime(date, item) {
+
+    if (this.props.renderDay) {
+      return this.props.renderDay(date ? xdateToData(date) : undefined, item);
+    }
+    const today = dateutils.sameDate(date, XDate()) ? styles.today : undefined;
+
+    const time = item[this.props.renderTime];
+    const formattedTime = dateutils.toFormat(time, 'hh tt');
+
+    if (date) {
+      return (
+        <View style={styles.day}>
+          <Text style={[styles.dayNum, today]}>{date.getDate()}</Text>
+          <Text style={[styles.dayText, today]}>{['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getDay()]}</Text>
+          {
+            this.props.renderTime ?
+              <Text style={[styles.dayText, {paddingTop: 5}]}>{formattedTime}</Text>
+              : null
+          }
+        </View>
+      );
+    } else {
+      return !this.props.renderTime ?
+        <View style={styles.day}/>
+        : (<View style={styles.day}>
+          <Text style={styles.dayText}>{formattedTime}</Text>
+        </View>);
+    }
   }
 
   renderDate(date, item) {
