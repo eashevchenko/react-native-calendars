@@ -1,8 +1,6 @@
 import {StyleSheet, Platform} from 'react-native';
 import * as defaultStyle from '../../style';
 
-const STYLESHEET_ID = 'stylesheet.calendar.header';
-
 export default function(theme={}) {
   const appStyle = {...defaultStyle, ...theme};
   return StyleSheet.create({
@@ -14,8 +12,7 @@ export default function(theme={}) {
       alignItems: 'center'
     },
     monthText: {
-      fontSize: appStyle.textMonthFontSize,
-      fontFamily: appStyle.textMonthFontFamily,
+      fontSize: 16,
       fontWeight: '300',
       color: appStyle.monthTextColor,
       margin: 10
@@ -43,10 +40,8 @@ export default function(theme={}) {
       marginBottom: 7,
       width: 32,
       textAlign: 'center',
-      fontSize: appStyle.textDayHeaderFontSize,
-      fontFamily: appStyle.textDayHeaderFontFamily,
+      fontSize: 12,
       color: appStyle.textSectionTitleColor
-    },
-    ...(theme[STYLESHEET_ID] || {})
+    }
   });
 }

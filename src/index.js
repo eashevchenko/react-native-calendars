@@ -1,4 +1,9 @@
-export { default as Calendar } from './calendar';
-export { default as CalendarList } from './calendar-list';
-export { default as Agenda } from './agenda';
-export { default as LocaleConfig } from 'xdate';
+import Calendar from './calendar';
+import CalendarList from './calendar-list';
+import Agenda from './agenda';
+
+module.exports = {
+  Calendar,
+  CalendarList,
+  Agenda
+};
