@@ -1,6 +1,6 @@
 {
   "name": "react-native-calendars",
-  "version": "1.7.1",
+  "version": "1.2.10",
   "main": "src/index.js",
   "description": "React Native Calendar Components",
   "scripts": {
@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wix/react-native-calendars"
+    "url": "git+https://github.com/eashevchenko/react-native-calendars"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "author": "Wix.com",
+  "author": "Eugene Shevchenko",
   "license": "MIT",
   "dependencies": {
     "prop-types": "^15.5.10",
@@ -25,7 +25,7 @@
     "babel-eslint": "^7.2.3",
     "eslint-plugin-react": "^7.0.0",
     "jasmine": "^2.5.2",
-    "react": "16.0.0-alpha.12",
-    "react-native": "0.47.2"
+    "react": "15.4.2",
+    "react-native": "0.41.2"
   }
 }
