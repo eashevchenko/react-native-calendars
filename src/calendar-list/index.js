@@ -55,7 +55,6 @@ class CalendarList extends Component {
         <Calendar
           theme={this.props.theme}
           selected={this.props.selected}
-          isHided={this.props.isHided}
           style={[{height: calendarHeight}, this.style.calendar]}
           current={row}
           hideArrows

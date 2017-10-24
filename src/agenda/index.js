@@ -198,7 +198,6 @@ export default class AgendaView extends Component {
         <Animated.View style={calendarStyle}>
           <CalendarList
             theme={this.props.theme}
-            isHided={!this.state.calendarScrollable}
             pastScrollRange={0}
             futureScrollRange={2}
             onVisibleMonthsChange={this.onVisibleMonthsChange.bind(this)}

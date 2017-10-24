@@ -113,7 +113,6 @@ class Calendar extends Component {
         <DayComp
             key={id}
             state={state}
-            isHided={this.props.isHided}
             theme={this.props.theme}
             onPress={this.pressDay.bind(this, day)}
             marked={this.getDateMarking(day)}

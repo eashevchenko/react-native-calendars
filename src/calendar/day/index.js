@@ -32,18 +32,13 @@ class Day extends Component {
     const dotStyle = [this.style.dot];
     let dot;
     if (this.props.marked) {
-      if(this.props.isHided) {
-         dotStyle.push(this.style.visibleDot);
-         dot = (<View style={dotStyle}/>);
-      } else {
-        containerStyle.push(this.style.customSelected);
-        textStyle.push({color: 'black'});
-      }
+      dotStyle.push(this.style.visibleDot);
+      dot = (<View style={dotStyle}/>);
     } else if (!this.props.markingExists) {
       textStyle.push(this.style.alignedText);
     }
 
-    if (this.props.state === 'selected' && this.props.isHided) {
+    if (this.props.state === 'selected') {
       containerStyle.push(this.style.selected);
       dotStyle.push(this.style.selectedDot);
       textStyle.push(this.style.selectedText);
