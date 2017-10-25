@@ -18,6 +18,7 @@ const CALENDAR_OFFSET = 38;
 
 const SCREEN_HEIGHT_OFFSET = 2 / 3;
 
+
 export default class AgendaView extends Component {
 
   constructor(props) {
