@@ -79,15 +79,6 @@ function page(xd, firstDayOfWeek) {
   return before.concat(days.slice(1, days.length - 1), after);
 }
 
-function toFormat(UTCTime, formatString) {
-  if(UTCTime && formatString) {
-    let xd = new XDate(UTCTime);
-    return xd.toString(formatString);
-  } else {
-    return '';
-  }
-}
-
 module.exports = {
   weekDayNames,
   sameMonth,
@@ -96,6 +87,5 @@ module.exports = {
   page,
   fromTo,
   isLTE,
-  isGTE,
-  toFormat
+  isGTE
 };
