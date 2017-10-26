@@ -55,6 +55,7 @@ class CalendarList extends Component {
     this.lastScrollPosition = -1000;
   }
 
+  //TODO fix
   scrollToDay(d, offset, animated) {
     const day = parseDate(d);
     const diffMonths = Math.round(this.state.openDate.clone().setDate(1).diffMonths(day.clone().setDate(1)));
@@ -68,7 +69,9 @@ class CalendarList extends Component {
         break;
       }
     }
+
     this.listView.scrollToOffset({offset: scrollAmount, animated});
+
   }
 
   scrollToMonth(m) {
@@ -161,7 +164,7 @@ class CalendarList extends Component {
         data={this.state.rows}
         //snapToAlignment='start'
         //snapToInterval={calendarHeight}
-        removeClippedSubviews={Platform.OS !== 'android'}
+        removeClippedSubviews={Platform.OS === 'android' ? false : true}
         pageSize={1}
         onViewableItemsChanged={this.onViewableItemsChanged.bind(this)}
         renderItem={this.renderCalendar.bind(this)}

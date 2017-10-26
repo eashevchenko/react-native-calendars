@@ -122,6 +122,7 @@ export default class AgendaView extends Component {
   }
 
   onLayout(event) {
+    console.log(event)
     this.viewHeight = event.nativeEvent.layout.height;
     this.viewWidth = event.nativeEvent.layout.width;
     this.calendar.scrollToDay(this.state.selectedDay.clone(), this.calendarOffset(), false);
@@ -144,6 +145,8 @@ export default class AgendaView extends Component {
       this.setScrollPadPosition(0, true);
       this.enableCalendarScrolling();
     }
+
+
     this.headerState = 'idle';
   }
 
@@ -209,6 +212,7 @@ export default class AgendaView extends Component {
   }
 
   enableCalendarScrolling() {
+
     this.setState({
       calendarScrollable: true
     });
@@ -228,6 +232,7 @@ export default class AgendaView extends Component {
   }
 
   chooseDay(d, optimisticScroll) {
+
     const day = parseDate(d);
     this.setState({
       calendarScrollable: false,
@@ -239,7 +244,8 @@ export default class AgendaView extends Component {
       });
     }
     this.setScrollPadPosition(this.initialScrollPadPosition(), true);
-    this.calendar.scrollToDay(day, this.calendarOffset(), true);
+    this.calendar.scrollToDay(day, this.calendarOffset() + 1, true);
+
     if (this.props.loadItemsForMonth) {
       this.props.loadItemsForMonth(xdateToData(day));
     }
@@ -282,6 +288,7 @@ export default class AgendaView extends Component {
 
   render() {
     const agendaHeight = Math.max(0, this.viewHeight - HEADER_HEIGHT);
+    console.log(agendaHeight)
     const weekDaysNames = dateutils.weekDayNames(this.props.firstDay);
     const weekdaysStyle = [this.styles.weekdays, {
       opacity: this.state.scrollY.interpolate({

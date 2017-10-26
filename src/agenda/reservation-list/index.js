@@ -177,9 +177,15 @@ class ReactComp extends Component {
     return {reservations, scrollPosition};
   }
 
+  get renderEmptyData() {
+    return this.props.renderEmptyItemsView ?
+           this.props.renderEmptyItemsView
+            : <ActivityIndicator style={{marginTop: 80}}/>
+  }
+
   render() {
     if (!this.props.reservations || !this.props.reservations[this.props.selectedDay.toString('yyyy-MM-dd')]) {
-      return this.props.renderEmptyItemsView ? this.props.renderEmptyItemsView : null;
+      return this.renderEmptyData;
     }
     return (
       <FlatList
