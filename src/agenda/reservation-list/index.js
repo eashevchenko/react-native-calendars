@@ -179,8 +179,8 @@ class ReactComp extends Component {
 
   get renderEmptyData() {
     return this.props.renderEmptyItemsView ?
-           this.props.renderEmptyItemsView
-            : <ActivityIndicator style={{marginTop: 80}}/>
+      this.props.renderEmptyItemsView
+      : <ActivityIndicator style={{marginTop: 80}}/>
   }
 
   render() {
